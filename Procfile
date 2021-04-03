@@ -1,1 +1,1 @@
-web: env/Scripts/activate
+web: bash env/Scripts/activate
