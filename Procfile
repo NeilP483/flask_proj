@@ -1,1 +1,1 @@
-worker: ./env/Scripts/activate
+worker: gunicorn microblog:app
