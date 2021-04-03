@@ -1,1 +1,1 @@
-worker: bash ./env/Scripts/activate
+worker: ./env/Scripts/activate
