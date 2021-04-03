@@ -1,0 +1,13 @@
+{% extends "log_in_base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h1>Hello, {{ current_user._name }}!</h1>
+			</div>
+		</div>
+	</div>
+{% endblock %}

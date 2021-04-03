@@ -1,0 +1,64 @@
+{% extends "log_in_base.html" %}
+
+{% block title %}Log a Activity{% endblock %}
+
+{% block main %}
+
+<div class="container-fluid middle">
+	<h1>Add a log</h1>
+	<form action="" method="post" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.activity_type.label }}<br>
+			{{ form.activity_type() }}
+			{% for error in form.activity_type.errors %}
+			<br><span style="color:red;"><label for="activity_type">[{{error}}]</label></span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.time.label }}<br>
+			{{ form.time(size=32) }}
+			{% for error in form.time.errors %}
+			<br><span style="color:red;"><label for="time">[{{error}}]</label></span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ form.heart_rate.label }}<br>
+			{{ form.heart_rate(size=32) }}
+			{% for error in form.heart_rate.errors %}
+			<br><span style="color:red;"><label for="heart_rate">[{{error}}]</label></span>
+			{% endfor %}
+		</p>
+		<p>{{ form.submit() }}</p>
+	</form>
+</div>
+<div class="container-fluid middle">
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6">
+			<h1>Logs</h1><br>
+			<table class="table table-striped danger">
+				<thead class="table-light">
+					<tr>
+						<th scope="col">Type</th>
+						<th scope="col">Time</th>
+						<th scope="col">Heart Rate</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% set i = 0 %}
+					{% set colors = ['green', 'dark_green'] %}
+					{% for l in current_user.get_logs() %}
+						<tr class = "{{ colors[i%2] }}">
+							<td>{{ l.activity_type }}</td>
+							<td>{{ l.time }}</td>
+							<td>{{ l.hr }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-3"></div>
+	</div>
+</div>
+{% endblock %}

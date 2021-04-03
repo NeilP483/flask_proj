@@ -1,0 +1,28 @@
+{% extends "log_out_base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block main %}
+	<div class="container-fluid ms-2 middle">
+		<h1>Sign In</h1>
+		<form action="" method="post" novalidate>
+			{{ form.hidden_tag() }}
+			<p>
+				{{ form.username.label }}<br>
+				{{ form.username(size=32) }}
+				{% for error in form.username.errors %}
+				<br><span style="color:red;"><label for="username">[{{error}}]</label></span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.password.label }}<br>
+				{{ form.password(size=32) }}
+				{% for error in form.password.errors %}
+				<br><span style="color:red;"><label for="password">[{{error}}]</label></span>
+				{% endfor %}
+			</p>
+			<p>{{ form.submit() }}</p>
+		</form>
+		<p>Don't have a account <a href = "{{url_for('signup')}}">Sign up</a></p>
+	</div>
+{% endblock %}

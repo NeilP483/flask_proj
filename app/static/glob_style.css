@@ -1,0 +1,15 @@
+.middle {
+	text-align: center;
+}
+
+body {
+	background: linear-gradient(to right, RGB(80, 80, 255), RGB(200, 200, 255));
+}
+
+.green {
+	background-color: RGB(200, 255, 255);
+}
+
+.dark_green {
+	background-color: RGB(100, 255, 100);
+}
