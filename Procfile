@@ -1,0 +1,1 @@
+web: env/Scripts/activate
