@@ -1,1 +1,1 @@
-worker: gunicorn microblog:app
+worker: gunicorn run:app
